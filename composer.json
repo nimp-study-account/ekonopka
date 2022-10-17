@@ -1,0 +1,17 @@
+{
+    "name": "ekonopka/exercise",
+    "description": "for homework php-pro",
+    "autoload": {
+        "psr-4": {
+            "Ekonopka\\Exercise\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nimp",
+            "email": "ekonopka93@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
