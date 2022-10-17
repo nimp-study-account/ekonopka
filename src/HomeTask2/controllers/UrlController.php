@@ -1,6 +1,6 @@
 <?php
 
-namespace Ekonopka\Exercise\HomeTask2;
+namespace Ekonopka\Exercise\HomeTask2\controllers;
 
 
 use Ekonopka\Exercise\HomeTask2\models\UrlDecoder;

@@ -18,7 +18,8 @@ class Router
 
     public function run(){
         $controllerName =
-            $this->reflectionClass->getNamespaceName() .'\\'. 'UrlController';
+            $this->reflectionClass->getNamespaceName() .'\\'.'controllers'.'\\'
+            . 'UrlController';
         //TODO реалізувати перемикання між контролерами
 
         $controllerObject = new $controllerName;
