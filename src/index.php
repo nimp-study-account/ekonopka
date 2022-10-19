@@ -1,6 +1,6 @@
 <?php
 namespace Ekonopka\Exercise;
-require 'vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 use Ekonopka\Exercise\HomeTask1\MagicMethod;
 use Ekonopka\Exercise\HomeTask2\Router;

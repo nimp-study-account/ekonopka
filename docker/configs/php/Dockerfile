@@ -1,8 +1,12 @@
-FROM php:7.4-fpm
+FROM php:8.1-fpm
 
+RUN apt-get update && apt-get install -y wget git unzip \
+    && pecl install xdebug-3.2.0RC1 \
+    && docker-php-ext-enable xdebug
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-COPY src/ ./src/
+RUN wget https://getcomposer.org/installer -O - -q \
+    | php -- --install-dir=/bin --filename=composer --quiet
 
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
-WORKDIR /srv/ekonopka/
+WORKDIR /srv/src/ekonopka
