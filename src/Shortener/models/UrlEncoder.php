@@ -1,6 +1,6 @@
 <?php
-namespace Ekonopka\Exercise\HomeTask2\models;
-use Ekonopka\Exercise\HomeTask2\models\interfaces\IUrlEncoder;
+namespace Ekonopka\Exercise\Shortener\models;
+use Ekonopka\Exercise\Shortener\models\interfaces\IUrlEncoder;
 
 class UrlEncoder implements IUrlEncoder
 {

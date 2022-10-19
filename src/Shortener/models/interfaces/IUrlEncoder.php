@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ekonopka\Exercise\HomeTask2\models\interfaces;
+namespace Ekonopka\Exercise\Shortener\models\interfaces;
 
 
 interface IUrlEncoder

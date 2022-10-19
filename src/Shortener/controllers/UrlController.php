@@ -1,10 +1,10 @@
 <?php
 
-namespace Ekonopka\Exercise\HomeTask2\controllers;
+namespace Ekonopka\Exercise\Shortener\controllers;
 
 
-use Ekonopka\Exercise\HomeTask2\models\UrlDecoder;
-use Ekonopka\Exercise\HomeTask2\models\UrlEncoder;
+use Ekonopka\Exercise\Shortener\models\UrlDecoder;
+use Ekonopka\Exercise\Shortener\models\UrlEncoder;
 
 class UrlController
 {

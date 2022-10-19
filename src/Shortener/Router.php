@@ -1,5 +1,5 @@
 <?php
-namespace Ekonopka\Exercise\HomeTask2;
+namespace Ekonopka\Exercise\Shortener;
 
 class Router
 {
