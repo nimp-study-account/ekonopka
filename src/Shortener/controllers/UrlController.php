@@ -4,7 +4,6 @@ namespace Ekonopka\Exercise\Shortener\controllers;
 
 use Ekonopka\Exercise\Shortener\models\UrlDecoder;
 use Ekonopka\Exercise\Shortener\models\UrlEncoder;
-use http\Exception\InvalidArgumentException;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
@@ -19,14 +18,25 @@ class UrlController
 
     public function actionEncode($url)
     {
+        $this->logger->info('start Encoding url : ' . $url);
+
         $encode = new UrlEncoder();
         $encode->length = 5;
-        $code = $encode->encode($url);
+
+        try {
+            $code = $encode->encode($url);
+        }catch (\InvalidArgumentException $e){
+            $this->logger->error($e->getMessage() . ' url : ' . $url);
+            exit;
+        }
+
 
         if($encode->isNewRecord){
             $encode->save([$url => $code]);
+
+            $this->logger->info('save code : '. $code);
         }
-        $this->logger->error('Logger is now Ready');
+
         echo $code;
     }
 
@@ -35,8 +45,11 @@ class UrlController
         $decoder = new UrlDecoder();
         try {
             $res = $decoder->decode($short_url);
-        }catch (InvalidArgumentException $e){
-           $res = $e->getMessage();
+        }catch (\InvalidArgumentException $e){
+
+            $this->logger->warning($e->getMessage() . ' code : ' . $short_url);
+
+            $res = $e->getMessage();
         }
 
         echo $res;

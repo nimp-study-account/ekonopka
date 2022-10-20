@@ -1,1 +1,7 @@
-[2022-10-20T09:09:11.307844+00:00] url-logger.ERROR: Logger is now Ready [] []
+[2022-10-20T10:18:03.028981+00:00] url-logger.WARNING: url not found [] []
+[2022-10-20T10:22:27.206643+00:00] url-logger.INFO: start Encoding url : dfsdf [] []
+[2022-10-20T10:26:44.138821+00:00] url-logger.INFO: start Encoding url : asdjkfhnsd [] []
+[2022-10-20T10:32:27.676893+00:00] url-logger.INFO: start Encoding url : sdfkgwer [] []
+[2022-10-20T10:32:48.291049+00:00] url-logger.ERROR: Url is broken url : sdfkgwer [] []
+[2022-10-20T10:55:04.804340+00:00] url-logger.INFO: start Encoding url : http://asdkfas.com [] []
+[2022-10-20T10:55:38.778031+00:00] url-logger.INFO: save code : 63512 [] []

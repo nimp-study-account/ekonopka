@@ -3,8 +3,8 @@ namespace Ekonopka\Exercise\Shortener;
 
 class Router
 {
-    protected $action;
-    protected  $params;
+    protected string $action;
+    protected string $params;
     /**
      * @var \ReflectionClass
      */
@@ -13,7 +13,6 @@ class Router
     public function __construct(){
         $this->setAction();
         $this->reflectionClass = new \ReflectionClass(self::class);
-        //TODO реалізувати підключення до БД
     }
 
     public function run()
@@ -29,13 +28,10 @@ class Router
 
     }
 
-
-
-
     protected function setAction()
     {
-        $this->action = $this->prepare(readline('виберіть дію :'));
-        $this->params = readline('введіть посилання або код');
+        $this->action = $this->prepare(readline('виберіть дію (encode/decode) :'));
+        $this->params = readline('введіть посилання або код :');
     }
 
     protected function prepare($srt) :string

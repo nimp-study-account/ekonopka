@@ -1,7 +1,6 @@
 <?php
 namespace Ekonopka\Exercise\Shortener\models;
 use Ekonopka\Exercise\Shortener\models\interfaces\IUrlEncoder;
-use http\Exception\InvalidArgumentException;
 
 
 class UrlEncoder extends ActiveFileData implements IUrlEncoder
@@ -25,7 +24,7 @@ class UrlEncoder extends ActiveFileData implements IUrlEncoder
     {
         if(empty($url) || !filter_var($url, FILTER_VALIDATE_URL))
         {
-            throw new InvalidArgumentException('Url is broken');
+            throw new \InvalidArgumentException('Url is broken');
         }
 
         return true;
@@ -33,6 +32,7 @@ class UrlEncoder extends ActiveFileData implements IUrlEncoder
 
     public function getResponseUrl($url): bool
     {
+        //TODO релізувати додаткову перевірку якою за бажанням можна користуватись в контроллері
         return true;
     }
 
@@ -47,13 +47,6 @@ class UrlEncoder extends ActiveFileData implements IUrlEncoder
             throw new \Exception();
         }
         return $this->getData()[$url];
-
-        /*
-        if(!$code = array_search($url, $this->getData())){
-            throw new \Exception();
-        }
-        return $code;
-        */
     }
 
 
