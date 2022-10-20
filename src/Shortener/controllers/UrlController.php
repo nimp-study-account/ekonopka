@@ -13,10 +13,15 @@ class UrlController
 
     public function __construct()
     {
+        //створення объекту лог-классу для контреллера
         $this->initLog();
     }
 
-    public function actionEncode($url)
+    /**
+     * @param string $url
+     * кодування посилання та його запис
+     */
+    public function actionEncode(string $url)
     {
         $this->logger->info('start Encoding url : ' . $url);
 
@@ -30,7 +35,7 @@ class UrlController
             exit;
         }
 
-
+        //якщо в базі нема такого посылання
         if($encode->isNewRecord){
             $encode->save([$url => $code]);
 
@@ -40,7 +45,11 @@ class UrlController
         echo $code;
     }
 
-    public function actionDecode($short_url)
+    /**
+     * @param string $short_url
+     * отримання поссилання за кодом
+     */
+    public function actionDecode(string $short_url)
     {
         $decoder = new UrlDecoder();
         try {
@@ -54,6 +63,7 @@ class UrlController
 
         echo $res;
     }
+
 
     protected function initLog()
     {

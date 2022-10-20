@@ -20,6 +20,9 @@ class ActiveFileData implements ActiveData
         $this->setData();
     }
 
+    /**
+     * @return array
+     */
     public function getData(): array
     {
         return $this->data;
@@ -41,6 +44,9 @@ class ActiveFileData implements ActiveData
             $this->data = (array) json_decode($content, true);
     }
 
+    /**
+     * @param array $arr
+     */
     public function save(array $arr)
     {
         $content = json_encode(array_merge($arr, $this->getData()));

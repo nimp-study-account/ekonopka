@@ -5,9 +5,14 @@ use Ekonopka\Exercise\Shortener\models\interfaces\IUrlEncoder;
 
 class UrlEncoder extends ActiveFileData implements IUrlEncoder
 {
+    //дефолтна кількість символів при кодуванні
     public int $length = 8;
 
-    public function encode($url): string
+    /**
+     * @param string $url
+     * @return string
+     */
+    public function encode(string $url): string
     {
 
         $this->UrlValidate($url);
@@ -20,7 +25,11 @@ class UrlEncoder extends ActiveFileData implements IUrlEncoder
         return $code;
     }
 
-    protected function UrlValidate($url): bool
+    /**
+     * @param string $url
+     * @return bool
+     */
+    protected function UrlValidate(string $url): bool
     {
         if(empty($url) || !filter_var($url, FILTER_VALIDATE_URL))
         {
@@ -32,16 +41,24 @@ class UrlEncoder extends ActiveFileData implements IUrlEncoder
 
     public function getResponseUrl($url): bool
     {
-        //TODO релізувати додаткову перевірку якою за бажанням можна користуватись в контроллері
+        //TODO релізувати додаткову перевірку, якою за бажанням, можна користуватись в контроллері
         return true;
     }
 
+    /**
+     * @return string
+     */
     protected function generateCode() : string
     {
         return substr(uniqid(), 0 , $this->length);
     }
 
-    public function getCodByUrl($url)
+    /**
+     * @param string $url
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getCodByUrl(string $url)
     {
         if(!array_key_exists($url, $this->getData())){
             throw new \Exception();
