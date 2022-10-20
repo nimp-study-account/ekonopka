@@ -16,7 +16,8 @@ class Router
         //TODO реалізувати підключення до БД
     }
 
-    public function run(){
+    public function run()
+    {
         $controllerName =
             $this->reflectionClass->getNamespaceName() .'\\'.'controllers'.'\\'
             . 'UrlController';
@@ -34,7 +35,7 @@ class Router
     protected function setAction()
     {
         $this->action = $this->prepare(readline('виберіть дію :'));
-        $this->params = readline('введіть посилання');
+        $this->params = readline('введіть посилання або код');
     }
 
     protected function prepare($srt) :string
